@@ -40,52 +40,53 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       loginForm: {
-        username: "admin",
-        password: "123456",
+        username: 'admin',
+        password: '123456'
       },
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 5, message: "长度应该在3-5之间", trigger: "blur" },
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 5, message: '长度应该在3-5之间', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
+          { required: true, message: '请输入密码', trigger: 'blur' },
           {
             min: 6,
             max: 15,
-            message: "密码长度应该在6-15之间",
-            trigger: "blur",
-          },
-        ],
-      },
-    };
+            message: '密码长度应该在6-15之间',
+            trigger: 'blur'
+          }
+        ]
+      }
+    }
   },
   methods: {
-    resetLoginForm() {
-      this.$refs.loginFormRef.resetFields();
+    resetLoginForm () {
+      this.$refs.loginFormRef.resetFields()
     },
-    login() {
+    login () {
       this.$refs.loginFormRef.validate(async (valid) => {
-        if (!valid) return;
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        if(res.meta.status !== 200){
-          return this.$message.error('登陆失败');
+        if (!valid) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        if (res.meta.status !== 200) {
+          return this.$message.error('登陆失败')
         }
-        this.$message.success('登录成功');
-        window.sessionStorage.setItem("token",res.data.token);
+        this.$message.success('登录成功')
+        window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
-      });
-    },
-  },
-};
+      })
+    }
+  }
+}
 </script>
 
 <style lang='less' scoped>
 .login_container {
   background-color: blue;
+  background-image: url(../assets/loginBackground2.jpg);
   height: 100%;
   width: 100%;
   position: relative;
