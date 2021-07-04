@@ -111,7 +111,7 @@ export default {
   background-color: #333744;
 }
 .el-main {
-  background-color: #bfa;
+  // background-color: #bfa;
 }
 .el-menu{
   border-right:none;
