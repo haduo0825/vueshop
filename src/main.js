@@ -10,7 +10,7 @@ axios.defaults.baseURL = 'http://www.ysqorz.top:8888/api/private/v1/'
 axios.interceptors.request.use(config=>{
   // console.log(config);
   config.headers.Authorization = window.sessionStorage.getItem('token')
-  console.log(config.headers.Authorization);
+  // console.log(config.headers.Authorization);
   return config  
 })
 // 将vue的原型上绑定axios
